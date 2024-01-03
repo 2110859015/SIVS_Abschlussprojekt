@@ -1,0 +1,7 @@
+Flask MongoDB
+https://pythonbasics.org/flask-mongodb/
+
+Flask Mongo Engine error:
+pip uninstall flask-mongoengine
+pip install git+https://github.com/idoshr/flask-mongoengine.git@1.0.1
+
