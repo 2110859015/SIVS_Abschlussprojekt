@@ -17,5 +17,12 @@
 
         <input type="submit" value="Login">
     </form>
+
+    {% if alert == 'failed' %}
+        <script>
+            alert('Login failed. Please try again.');
+        </script>
+    {% endif %}
+
 </body>
 </html>

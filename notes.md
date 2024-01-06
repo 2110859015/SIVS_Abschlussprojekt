@@ -39,3 +39,9 @@ conn.commit()
 ### SQL Injection for LOGIN (no prepared statements)
 (careful, space at the end)
 hacker' OR 1=1; -- 
+
+### XSS
+Enter in search bar after login
+
+<iframe src="javascript:alert(`xss`)">
+<script>alert('javascript was executed')</script>
