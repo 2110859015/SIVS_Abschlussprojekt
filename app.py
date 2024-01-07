@@ -1,26 +1,13 @@
-import json
+from db_connector import get_db_connection
 import mariadb
-import sys
 from flask import Flask, render_template, request, redirect, url_for, jsonify, session
 
 app = Flask(__name__)
 app.secret_key = "asdasdasd324"
 
-# Connect to MariaDB Platform
-try:
-    conn = mariadb.connect(
-        user="sivs",
-        password="sivs123!",
-        host="127.0.0.1",
-        port=3306,
-        database="sivs"
-    )
-    print("Connected to Database!")
-except mariadb.Error as e:
-    print(f"Error connecting to MariaDB Platform: {e}")
-    sys.exit(1)
+conn = get_db_connection()
 
-is_sql_inject = True
+is_sql_inject = False
 
 
 # fetch results from database
@@ -35,7 +22,7 @@ def search_results(query):
         results = cur.fetchall()
         return results
     except mariadb.Error:
-        print(f"Error executing SQL query: {e}")
+        print(f"Error executing SQL query: {mariadb.Error}")
         return None
 
 
@@ -83,7 +70,7 @@ def login():
             return redirect(url_for("dashboard"))
             # return render_template('dashboard.html', name=username)
         return redirect(url_for("home"))
-    except e:
+    except mariadb.Error:
         return jsonify({'error': 'Not found'}), 404
 
 
