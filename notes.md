@@ -31,7 +31,7 @@ User SIVS_DB_Export.sql for database (DB + Tables + Data)
 CREATE USER 'sivs'@'localhost' IDENTIFIED BY 'sivs123!';
 
 -- Grant privileges on a specific database ('SIVS' in this case)
-GRANT ALL PRIVILEGES ON SIVS.* TO 'sivs'@'localhost';
+GRANT ALL PRIVILEGES ON sivs.* TO 'sivs'@'localhost';
 
 -- Reload the privileges to apply the changes
 FLUSH PRIVILEGES;
