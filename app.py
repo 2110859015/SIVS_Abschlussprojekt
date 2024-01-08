@@ -8,6 +8,7 @@ app.secret_key = "asdasdasd324"
 conn = get_db_connection()
 
 is_sql_inject = False
+is_https = True
 
 
 # fetch results from database
@@ -66,7 +67,7 @@ def login():
         row_count = cur.fetchone()[0]
         if row_count > 0:
             session['username'] = username
-            print("username set")
+            print(username + ' logged in')
             return redirect(url_for("dashboard"))
             # return render_template('dashboard.html', name=username)
         return redirect(url_for("home"))
@@ -75,4 +76,9 @@ def login():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    if is_https:
+        app.run(host="0.0.0.0", port=443, debug=True,
+                ssl_context=("certificates/cert.pem", "certificates/key.pem")
+                )
+    else:
+        app.run(host="0.0.0.0", port=5000, debug=True)

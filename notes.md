@@ -1,3 +1,13 @@
+# How to use
+Start Web-Server by using the console: 
+HTTPS: flask run --host=0.0.0.0 --cert=certificates/cert.pem --key=certificates/key.pem --port
+=443
+HTTP: flask run --host=0.0.0.0
+
+Web-Server is available under: https://127.0.0.1:443/ if var is_https = True OR
+http://127.0.0.1:5000/ if var is_https = False
+
+
 ## Flask MongoDB
 https://pythonbasics.org/flask-mongodb/
 
@@ -11,6 +21,8 @@ qwertz123!!
 
 Service: MariaDB
 Port 3306
+
+User SIVS_DB_Export.sql for database (DB + Tables + Data)
 
 ### CREATE NEW USER
 
@@ -45,3 +57,8 @@ Enter in search bar after login
 
 <iframe src="javascript:alert(`xss`)">
 <script>alert('javascript was executed')</script>
+
+### CERTIFICATE HTTPS
+Enter passphrase when starting server.
+Passphrase: geheim!
+
