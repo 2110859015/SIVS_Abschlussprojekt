@@ -1,12 +1,17 @@
 # How to use?
 Start Web-Server by using the console: 
-HTTPS: flask run --host=0.0.0.0 --cert=certificates/cert.pem --key=certificates/key.pem --port
-=443
-HTTP: flask run --host=0.0.0.0
+- HTTPS: flask run --host=0.0.0.0 --cert=certificates/cert.pem --key=certificates/key.pem --port=443
+- HTTP: flask run --host=0.0.0.0
 
-Web-Server is available under: https://127.0.0.1:443/ if var is_https = True OR
-http://127.0.0.1:5000/ if var is_https = False
+Web-Server is available under: 
+- https://127.0.0.1:443/ if var is_https = True OR
+- http://127.0.0.1:5000/ if var is_https = False
 
+## Vulnerabilities
+- To activate SQL Injection set var is_sql_inject = True and restart app.py
+- To use secure/unsecure communication refer to "How to use" (http/https)
+- To activate XSS, change line to {% autoescape false %} in \templates\dashboard.html
+- To deactivate XSS, change line to {% autoescape true %} in \templates\dashboard.html
 
 ## Flask MongoDB
 https://pythonbasics.org/flask-mongodb/
